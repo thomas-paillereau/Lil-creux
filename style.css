@@ -1,0 +1,57 @@
+html {
+    background-color: rgb(192, 192, 192);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 2em;
+    background-color: white;
+    border: 1px solid black;
+    overflow-x: hidden;
+}
+
+
+
+.products {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap : 20px;
+
+
+    .product {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+        border: rgb(192, 192, 192) 2px solid;
+
+        width: 25vh;
+        margin: auto;
+        aspect-ratio: 1/1;
+
+        img {
+            margin: auto;
+            max-height: 75%;
+            max-width: 90%;
+            aspect-ratio: initial;
+        }
+
+        .product_text {
+            font-size: 15px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
