@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $dsn = 'mysql:host=172.21.82.208;dbname=GROUP3';
-    $database_username = 'GROUP3';
-    $database_password = '439';
+    $dsn = 'mysql:host=localhost;dbname=GROUP3';
+    $database_username = 'root';
+    $database_password = '';
 
     try {
         $db = new PDO($dsn, $database_username, $database_password);

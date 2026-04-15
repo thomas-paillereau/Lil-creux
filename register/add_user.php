@@ -1,9 +1,11 @@
 <?php
+
 session_start();
 if (isset($_SESSION['user_id'])) {
     header('Location: ../');
     exit();
 }
+session_abort();
 
 $user_name = filter_input(INPUT_POST, 'name');
 $user_email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -15,10 +17,8 @@ if ($user_name == null || $user_email == null || $user_password == null) {
     $error_message = "Invalid product data. Check all fields and try again.";
     include('../database_error.php');
 } else {
-
     $db = 0;
     require_once('../database.php');
-
 
     $query = 'Select * from users where user_email = :email';
     $statement = $db->prepare($query);
@@ -32,10 +32,7 @@ if ($user_name == null || $user_email == null || $user_password == null) {
         include('../database_error.php');
     }
     else {
-
-
         // Add the product to the database
-
         $query = 'INSERT INTO users (user_name, user_email, password) VALUES (:name, :email, :password)';
         $statement = $db->prepare($query);
         $statement->bindValue(':name', $user_name);
@@ -45,7 +42,8 @@ if ($user_name == null || $user_email == null || $user_password == null) {
         $statement->closeCursor();
 
         // Display the Product List page
-        include('index.php');
+        header('Location: ../');
+        exit();
     }
 }
 ?>
